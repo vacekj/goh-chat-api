@@ -12,7 +12,7 @@ router.get('/', function (req, res) {
 
 
 router.post('/ucitel/', async function (req, res) {
-	const prijmeni = diacritics.remove(req.body["prijmeni"]);
+	const prijmeni = diacritics.remove(req.body["prijmeni"]).toLowerCase();
 	const photoUrl = getPhotoUrl(prijmeni);
 	return res.json(sendPhoto(photoUrl));
 });
