@@ -13,6 +13,7 @@ router.get('/', function (req, res) {
 
 router.post('/ucitel/', async function (req, res) {
 	const prijmeniBody = req.body["prijmeni"];
+	// TODO: validate that the photo exists, if not, return something
 	const prijmeni = diacritics.remove(req.body["prijmeni"]).toLowerCase();
 	const photoUrl = getPhotoUrl(prijmeni);
 	return res.json(sendPhoto(photoUrl));
